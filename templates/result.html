@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .alert {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .alert.fade {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="mb-4">Prediction Result</h1>
+        {% if prediction == 'Reliable' %}
+            <div class="alert alert-success fade show" role="alert">
+                <strong>REAL!</strong> The news has been classified as reliable.
+            </div>
+        {% else %}
+            <div class="alert alert-danger fade show" role="alert">
+                <strong>FAKE!</strong> The news has been classified as unreliable.
+            </div>
+        {% endif %}
+        <a href="{{ url_for('home') }}" class="btn btn-primary mt-4">Back</a>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                var alert = document.querySelector('.alert');
+                alert.classList.remove('fade');
+            }, 100); // Delay to allow for initial fade effect
+        });
+    </script>
+</body>
+</html>

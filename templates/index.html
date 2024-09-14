@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Classification App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://miro.medium.com/v2/resize:fit:790/1*OT_N4E4FjLnwoxu58dcOJA.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            max-height: 500px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: antiquewhite;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-control:focus {
+            border-color: #007BFF;
+            box-shadow: none;
+        }
+        .btn-primary {
+            background-color: #007BFF;
+            border-color: #007BFF;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Fake News Classification App</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="news">Input the News content below:</label>
+                <textarea class="form-control" id="news" name="news" rows="10" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
