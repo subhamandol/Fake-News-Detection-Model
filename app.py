@@ -5,6 +5,8 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
+nltk.download('punkt')
+nltk.download('PorterStemmer')
 
 # Download the stopwords corpus
 nltk.download('stopwords')
