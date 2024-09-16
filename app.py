@@ -1,15 +1,20 @@
 from flask import Flask, request, render_template, redirect, url_for
 import pickle
 import re
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Download the stopwords corpus
+nltk.download('stopwords')
 
 app = Flask(__name__)
 
 port_stem = PorterStemmer()
 vectorization = TfidfVectorizer()
 
+# Load the vectorizer and model
 vector_form = pickle.load(open('vector1.pkl', 'rb'))
 load_model = pickle.load(open('model1.pkl', 'rb'))
 
@@ -17,7 +22,7 @@ def stemming(content):
     con = re.sub('[^a-zA-Z]', ' ', content)
     con = con.lower()
     con = con.split()
-    con = [port_stem.stem(word) for word in con if not word in stopwords.words('english')]
+    con = [port_stem.stem(word) for word in con if word not in stopwords.words('english')]
     con = ' '.join(con)
     return con
 
